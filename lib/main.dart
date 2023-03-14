@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_profile_practice/components/profile_buttons.dart';
 import 'package:flutter_profile_practice/components/profile_count_info.dart';
 import 'package:flutter_profile_practice/components/profile_header.dart';
 import 'package:flutter_profile_practice/theme.dart';
@@ -38,6 +39,7 @@ class ProfilePage extends StatelessWidget {
           SizedBox(height: 20),
           ProfileCountInfo(),
           SizedBox(height: 20),
+          ProfileButtons(),
           ProfileTab(),
         ],
       ),
