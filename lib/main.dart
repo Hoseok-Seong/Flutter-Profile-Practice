@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_profile_practice/components/profile_buttons.dart';
 import 'package:flutter_profile_practice/components/profile_count_info.dart';
-import 'package:flutter_profile_practice/components/profile_header.dart';
-import 'package:flutter_profile_practice/hello_page.dart';
+import 'package:flutter_profile_practice/components/profile_tab.dart';
 import 'package:flutter_profile_practice/theme.dart';
 
 import 'components/profile_drawer.dart';
-import 'components/profile_tab.dart';
+import 'components/profile_header.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,16 +32,24 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       endDrawer: ProfileDrawer(),
       appBar: _appBar(),
-      body: Column(
-        children: [
-          SizedBox(height: 20),
-          ProfileHeader(),
-          SizedBox(height: 20),
-          ProfileCountInfo(),
-          SizedBox(height: 20),
-          ProfileButtons(),
-          Expanded(child: ProfileTab()),
-        ],
+      body: NestedScrollView(
+        body: ProfileTab(),
+        headerSliverBuilder: (context, innerBoxIsScrolled) {
+          return [
+            SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  SizedBox(height: 20),
+                  ProfileHeader(),
+                  SizedBox(height: 20),
+                  ProfileCountInfo(),
+                  SizedBox(height: 20),
+                  ProfileButtons(),
+                ],
+              ),
+            )
+          ];
+        },
       ),
     );
   }
@@ -55,5 +62,3 @@ AppBar _appBar() {
     title: Text("Profile"),
   );
 }
-
-

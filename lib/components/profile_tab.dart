@@ -26,10 +26,10 @@ class _ProfileTabState extends State<ProfileTab>
           controller: _tabController,
           tabs: [
             Tab(
-              icon: Icon(Icons.directions_car),
+              icon: Icon(Icons.directions_car, color: Colors.black),
             ),
             Tab(
-              icon: Icon(Icons.directions_transit),
+              icon: Icon(Icons.directions_transit, color: Colors.black),
             ),
           ],
         ),
